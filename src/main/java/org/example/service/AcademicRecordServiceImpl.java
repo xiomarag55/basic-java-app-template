@@ -16,19 +16,30 @@ public class AcademicRecordServiceImpl implements AcademicRecordService {
   }
 
   @Override
-  public Double calculateAverage() {
-    return null;
+  public Double calculateAverage(List<Grade> grades) {
+
+    double averageGrades = 0;
+    if (!grades.isEmpty()) {
+      for (Grade grade : grades) {
+        averageGrades = averageGrades + grade.grade();
+      }
+      return averageGrades/grades.size();
+    }else{
+      return null;
+    }
   }
 
   @Override
-  public Integer sumNumberOfGrades() {
-    System.out.println("Sumando el número de calificaciones");
-    logger.info("Sumando el número de calificaciones");
-    logger.warn("Sumando el número de calificaciones");
-    logger.error("Sumando el número de calificaciones");
+  public Integer sumNumberOfGrades(List<Grade> grades) {
+    int numberOfGrades = 0;
+    if(!grades.isEmpty()){
+      for (Grade grade : grades) {
+        numberOfGrades ++;
 
-    List<Grade> gradeList = this.gradeRepository.findAllGrades();
-    // TODO sum number of grades and return the summation
+      }
+      return numberOfGrades;
+
+    }
     return null;
   }
 }
