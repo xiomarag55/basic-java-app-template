@@ -9,10 +9,8 @@ import org.slf4j.LoggerFactory;
 public class AcademicRecordServiceImpl implements AcademicRecordService {
 
   private static final Logger logger = LoggerFactory.getLogger(AcademicRecordServiceImpl.class);
-  private final GradeRepository gradeRepository;
 
   public AcademicRecordServiceImpl(GradeRepository gradeRepository) {
-    this.gradeRepository = gradeRepository;
   }
 
   @Override
